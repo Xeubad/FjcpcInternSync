@@ -1,4 +1,4 @@
-# FjcpcInternSync（船政实习上传控制台）
+# FjcpcInternSync
 
 面向实习日志场景的**全栈应用**：对接 FJCPC 实习平台接口，提供 **FastAPI** 后端与 **React（Vite + TypeScript + Ant Design）** 管理台；支持 Excel 批量解析与异步上传、文本三行格式批量提交；数据以 **JSON 文件**持久化，可按规划扩展 PostgreSQL。
 
