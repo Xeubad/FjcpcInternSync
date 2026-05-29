@@ -1,0 +1,23 @@
+{
+  "_schema": {
+    "description": "当前项目的活功能清单。已完成的里程碑由 hooks 触发归档到 progress.md，不要堆在这里。",
+    "status_enum": ["not_started", "in_progress", "blocked", "passing"],
+    "single_in_flight_rule": "同一时刻最多一个 in_progress，避免并行开新坑",
+    "hook_integration": "hooks/start.sh 启动时会自动 grep 出 in_progress 和 blocked 项注入对话",
+    "feature_fields": {
+      "id": "kebab-case 唯一标识，例如 user-login-page",
+      "priority": "1 = 最高，数字越大优先级越低",
+      "area": "功能所属领域，例如 frontend / backend / infra",
+      "title": "一句话功能名",
+      "user_visible_behavior": "用户能感知到的行为变化",
+      "status": "见 status_enum",
+      "owner": "负责人格（mio / rei / nagi / kanon / yuki / shion）或 user",
+      "next_action": "下一步具体动作（动词开头）",
+      "verification": "怎么算 passing 的可执行检查清单",
+      "risks": "已知风险点",
+      "blockers": "阻塞项（解开后写到 next_action）"
+    }
+  },
+  "features": [],
+  "completed_milestones_archived_to": "tasks/progress.md"
+}

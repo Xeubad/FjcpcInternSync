@@ -1,0 +1,34 @@
+{
+  "agent": "rin",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ".claude/hooks/start.ps1"],
+            "shell": "powershell",
+            "timeout": 10,
+            "statusMessage": "正在唤醒任务进度与长期记忆..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ".claude/hooks/stop.ps1"],
+            "shell": "powershell",
+            "timeout": 10,
+            "statusMessage": "触发收尾反思与记忆沉淀检查...",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}

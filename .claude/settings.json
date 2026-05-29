@@ -1,0 +1,32 @@
+{
+  "agent": "rin",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/start.sh",
+            "shell": "bash",
+            "timeout": 10,
+            "statusMessage": "正在唤醒任务进度与长期记忆..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/stop.sh",
+            "shell": "bash",
+            "timeout": 10,
+            "statusMessage": "触发收尾反思与记忆沉淀检查...",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}

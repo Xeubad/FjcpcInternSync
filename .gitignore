@@ -1,0 +1,38 @@
+# ===== Python / 后端 =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# ===== Node / 前端 =====
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# ===== 环境变量与密钥（严禁提交）=====
+.env
+.env.*
+!.env.example
+!*.env.docker.example
+backend/.env
+docker/.env.docker
+
+# ===== 运行时数据（任务、日志、指标、浏览器 Cookie）=====
+backend/data/
+*.log
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.swp
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+
+# ===== 其它 =====
+*.bak
+*.tmp

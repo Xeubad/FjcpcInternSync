@@ -1,0 +1,36 @@
+# FjcpcInternSync 单容器编排
+# 用法（在 docker/ 目录下）：
+#   cp .env.docker.example .env.docker
+#   docker compose up -d --build
+#
+# 构建上下文为上一级（项目根目录），Dockerfile 在本目录。
+
+services:
+  fjcpc-intern-sync:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: fjcpc-intern-sync:latest
+    container_name: fjcpc-intern-sync
+    ports:
+      - "8000:8000"
+    # 运行时配置从 .env.docker 注入；不存在时容器用镜像内默认值
+    env_file:
+      - .env.docker
+    # 运行时数据持久化（任务、日志、指标、浏览器 Cookie）
+    volumes:
+      - fjcpc-data:/app/backend/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=3).status==200 else 1)"
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+volumes:
+  fjcpc-data:

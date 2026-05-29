@@ -1,0 +1,22 @@
+# Docker 构建上下文排除项（构建上下文为项目根目录）
+# 减小上下文体积，并避免把本地状态/密钥带进镜像。
+
+# 依赖与构建产物（镜像内会重新安装/构建）
+frontend/node_modules
+frontend/dist
+backend/**/__pycache__
+**/__pycache__
+*.pyc
+
+# 运行时数据与密钥（严禁进镜像，应通过挂卷与环境变量提供）
+backend/data
+backend/.env
+docker/.env.docker
+
+# 测试与开发杂项
+backend/tests
+backend/.pytest_cache
+.git
+.gitignore
+*.md
+docs
