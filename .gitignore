@@ -24,6 +24,9 @@ docker/.env.docker
 backend/data/
 *.log
 
+# ===== 审查报告（本地留存，不提交）=====
+audit/
+
 # ===== IDE / 编辑器 =====
 .idea/
 .vscode/
